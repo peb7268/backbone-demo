@@ -1,3 +1,5 @@
+var app = {};
+
 //Models
 var Survey = Backbone.Model.extend({
 	defaults: {
@@ -11,31 +13,7 @@ var Survey = Backbone.Model.extend({
 		}	
 	}
 });
-var Page = Backbone.Model.extend({
-	defaults: {
-		name: '',
-		title: '',
-		content: ''
-	}
-});
 
-var PageView = Backbone.View.extend({
-	el: 'body',
-	tagName: 'div',
-
-	initialize: function(){
-		this.render();
-	},
-	render: function(){
-		console.log(this.model.toJSON());
-		this.$el.append(this.model.get('title'));
-		this.$el.append(this.model.get('content'));
-		return this;
-	}
-});
-
-//Model Instances
-//Survey
 var survey = new Survey({
 	name: 'Ice Demo Survey',
 	title: '2012 presidential Caucus',
@@ -45,20 +23,80 @@ var survey = new Survey({
 	}
 });
 
-//Pages
-var intro = new Page({
+var Page = Backbone.Model.extend({
+	defaults: {
+		name: '',
+		title: '',
+		content: ''
+	}
+});
+
+var PageView = Backbone.View.extend({
+	initialize: function(){
+		this.render();
+	},
+	render: function(){
+		this.$el.html(this.template(this.model.toJSON())).appendTo(document.body);
+		return this;
+	},
+	destroy: function(){
+		this.$el.remove();
+	}
+});
+
+
+//Page Models
+var currentPage;
+app.setCurrentPage = function(pageView){
+	if(currentPage) currentPage.destroy();
+	currentPage = pageView;
+};
+app.page = {};
+app.page.intro = {};
+app.page.intro.model = new Page({
 	name: 'Intro',
-	title: 'Get Paid for Having FUN!!<br><br>',
-	content: 'We\'d like your help today by participating in a stock investing game. In this game we\'ll present you with a group of possible outcomes, complete with images and descriptions. Once you\'ve reviewed each potential outcome, you\'ll be given the opportunity to buy \" virtual stock shares \" in them using a stock trading tool.</p><p>In addition to the reward you\'ll be receiving for participating, by investing in the potential outcome that actually occurs, you\'ll be able to win up to an additional $10!'
+	title: '',
+	content: ''
+});
+app.page.intro.view = PageView.extend({
+	template: _.template($('#intro').html())
 });
 
-var background = new Page({
+app.page.categories = {};
+app.page.categories.model = new Page({
+	name: 'Categories',
+	title: '',
+	content: ''
+});
+app.page.categories.view = PageView.extend({
+	template: _.template($('#categories').html())
+});
+
+app.page.background = {};
+app.page.background.model = new Page({
 	name: 'Background',
-	title: 'Background',
-	content: 'We would like your feedback! Your goal is to predict which Republican Candidate will win the Iowa Caucus on January 3, 2012. If you predict the winning candidate, you can earn up to an additional $10! For this scenario you will be reviewing the seven (7) current candidates for the Republican Presidential nomination. In order to proceed, you must agree to the terms of our NDA (non-disclosure agreement) which specifies how you must treat this confidential information.'
+	title: '',
+	content: ''
+});
+app.page.background.view = PageView.extend({
+	template: _.template($('#background').html())
 });
 
-//Views
-var pageView = new PageView({
-	model: intro
+var Router = Backbone.Router.extend({
+	routes: {
+		'': 'start',
+		':page': 'setUpPage'
+	},
+	start: function(){
+		this.setUpPage('intro');
+	},
+	setUpPage: function(page){
+		var pageView = new app.page[page].view({
+			model: app.page[page].model
+		});
+		app.setCurrentPage(pageView);
+	}
 });
+
+var router = new Router();
+Backbone.history.start();

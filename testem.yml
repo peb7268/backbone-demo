@@ -1,0 +1,10 @@
+launchers: 
+    rspec: 
+        command: rspec spec/spec.rb
+src_files: 
+- src/index.html
+- src/js/*.js
+- spec/*.rb
+
+launch_in_dev: 
+- rspec
