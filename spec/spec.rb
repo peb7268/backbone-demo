@@ -6,6 +6,7 @@ describe '1 should equal 1' do
 		page.should have_content('Get Paid for Having FUN!!')
 		click_link 'Next'
 		page.should have_content('Topic Categories')
+		page.should have_content('Current Events')
 		click_link 'Next'
 		page.should have_content('Background')
 	end
