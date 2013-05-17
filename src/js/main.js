@@ -2,7 +2,8 @@ require.config({
     paths: {
     	jquery: 'lib/jquery',
     	underscore: 'lib/underscore',
-        backbone: 'lib/backbone'
+        backbone: 'lib/backbone',
+        templates: '../templates'
     },
     shim: {
     	'jquery': {
@@ -18,6 +19,6 @@ require.config({
     }
 });
 
-define(['views/intro', 'views/categories', 'views/background', 'router'], function(app) {
-    
+define(['router'], function(app) {
+	
 });

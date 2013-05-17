@@ -6,7 +6,7 @@ define(function(require){
 	app.page.categories = {};
 	var view = app.page.categories.view = PageView.extend({
 		model: survey,
-		template: _.template($('#categories').html())
+		template: _.template(require('text!templates/categories.html'))
 	});
 
 	return view;

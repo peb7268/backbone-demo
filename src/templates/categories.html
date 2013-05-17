@@ -1,0 +1,11 @@
+<h1>Topic Categories</h1>
+<p>First, please select the three (3) topics you feel most qualified 
+to evaluate. Remember, you can only earn an additional reward by providing 
+correct predictions, so choose the topics you're most familiar with:</p>
+<ul>
+<% _.each(categories, function(cat, i) { %>
+<li><input type="checkbox" value="<%= cat %>"><%= cat %></li>
+<% }); %>
+</ul>
+<a href="">Prev</a>
+<a href="#background" class="next">Next</a>

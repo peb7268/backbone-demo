@@ -4,7 +4,7 @@ define(function(require){
 
 	app.page.background = {};
 	var view = app.page.background.view = PageView.extend({
-		template: _.template($('#background').html())
+		template: _.template(require('text!templates/background.html'))
 	});
 
 	return view;

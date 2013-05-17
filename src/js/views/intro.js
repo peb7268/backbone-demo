@@ -7,7 +7,7 @@ define(function(require){
 	app.page.intro = {};
 
 	var view = app.page.intro.view = PageView.extend({
-		template: _.template($('#intro').html())
+		template: _.template(require('text!templates/intro.html'))
 	});
 
 	return view;
