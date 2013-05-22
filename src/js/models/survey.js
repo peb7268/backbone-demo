@@ -10,12 +10,5 @@ define(function(require){
 		}
 	});
 
-	var survey = new Survey({
-		name: 'Ice Demo Survey',
-		title: '2012 presidential Caucus',
-		id: 10020349,
-		categories: [ 'Current Events', 'Food &amp; Drinking', 'Sports Technology', 'Leisure &amp; Entertainment', 'U.S. Politics', 'Foreign Affairs', 'Business &amp; Economics']
-	});
-
-	return survey;
+	return Survey;
 });

@@ -1,5 +1,6 @@
-define(function(){
-	var app = {};
+define(function(require){
+	var app 		= {};
+	
 	//Page Models
 	var currentPage;
 	app.setCurrentPage = function(pageView){

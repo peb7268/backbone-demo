@@ -19,6 +19,17 @@ require.config({
     }
 });
 
-define(['router'], function(app) {
-	
+define(function(require) {
+    var Pages       = require('collections/pages');
+
+    require('views/intro');
+    require('views/categories');
+    require('views/background');
+    
+    require('router');
+
+    var PagesCollection = new Pages({}),
+
+    router = new Router();
+    Backbone.history.start();
 });

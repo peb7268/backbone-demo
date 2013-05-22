@@ -1,11 +1,8 @@
 define(function(require){
 	var Backbone 	= require('backbone'),
 		app 		= require('app');
-		require('views/intro');
-		require('views/categories');
-		require('views/background');		   
 					   
-	var Router = Backbone.Router.extend({
+	return Router = Backbone.Router.extend({
 		routes: {
 			'': 'start',
 			':page': 'setUpPage'
@@ -18,7 +15,4 @@ define(function(require){
 			app.setCurrentPage(pageView);
 		}
 	});
-
-	var router = new Router();
-	Backbone.history.start();
 });
