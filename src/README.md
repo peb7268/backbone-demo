@@ -37,7 +37,9 @@ The corresponding html template in *templates/initial_concept.html* looks like t
 ````  
 The last thing you have to do to get this working is add the view to the *main.js* file.  
 ````markdown 
+//More code up here  
 ......  
+
 define(function(require) {
     var Pages       = require('collections/pages');
 
