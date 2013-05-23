@@ -4,7 +4,7 @@ to evaluate. Remember, you can only earn an additional reward by providing
 correct predictions, so choose the topics you're most familiar with:</p>
 <ul>
 <% _.each(categories, function(cat, i) { %>
-	<li><input type="checkbox" value="<%= cat %>"><%= cat %></li>
+	<li><input type="checkbox" name="<%= cat %>" value="<%= cat %>"><%= cat %></li>
 <% }); %>
 </ul>
 <a href="">Prev</a>
