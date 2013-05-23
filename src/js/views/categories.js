@@ -7,7 +7,7 @@ define(function(require){
 		app.page.categories = {};
 
 	var	view = app.page.categories.view = PageView.extend({
-		model: new Survey({ advancementThreshold: 2, categories: [ 'Current Events', 'Food &amp; Drinking', 'Sports Technology', 'Leisure &amp; Entertainment', 'U.S. Politics', 'Foreign Affairs', 'Business &amp; Economics'], allowed: ['U.S. Politics', 'Foreign Affairs'] }),
+		model: new Survey({ advancementThreshold: 3, categories: [ 'Current Events', 'Food &amp; Drinking', 'Sports Technology', 'Leisure &amp; Entertainment', 'U.S. Politics', 'Foreign Affairs', 'Business &amp; Economics'], allowed: ['U.S. Politics', 'Foreign Affairs', 'Business & Economics'] }),
 		template: _.template(require('text!templates/categories.html')),
 
 		events: {
@@ -56,7 +56,7 @@ define(function(require){
 				if(readyToAdvance) {
 					window.location = nextPage;
 				} else {
-					//console.log('Thank you for wanting to take this survey. You arent good enough though.')
+					window.location.hash = '#thank_you_fail';
 				}
 		}
 	});

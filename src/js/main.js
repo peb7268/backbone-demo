@@ -23,8 +23,10 @@ define(function(require) {
     var Pages       = require('collections/pages');
 
     require('views/intro');
+    require('views/thank_you_fail');
     require('views/categories');
     require('views/background');
+    require('views/initial_concept');
     
     require('router');
 
