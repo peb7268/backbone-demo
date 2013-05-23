@@ -1,6 +1,9 @@
 launchers: 
-    rspec: 
-        command: rspec spec/spec.rb
+    headless: 
+        command: "HEADLESS=1 rspec spec/spec.rb"
+    browser:
+        command: "rspec spec/spec.rb"
+
 src_files: 
 - src/index.html
 - src/js/*.js
@@ -8,4 +11,4 @@ src_files:
 - spec/*.rb
 
 launch_in_dev: 
-- rspec
+- headless
