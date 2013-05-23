@@ -88,4 +88,3 @@ of the page to setup, in this initial case it is ```` intro ````.
  All other calls go to *setUpPage* which just uses the app.page object you populate in each of your views to call the 
  name of the view to instantiate. This is based on your hash in the url, which also happens to be the view file name and template name. Currently this is how we are dynamically creating views.  
  
-##Caveats  
