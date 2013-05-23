@@ -4,8 +4,9 @@ define(function(require){
 					   
 	return Router = Backbone.Router.extend({
 		routes: {
-			'': 'start',
-			':page': 'setUpPage'
+			''			: 'start',
+			'testem'	: 'start',
+			':page'		: 'setUpPage'
 		},
 		start: function(){
 			this.setUpPage('intro');

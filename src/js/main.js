@@ -21,7 +21,7 @@ require.config({
 
 define(function(require) {
     var Pages       = require('collections/pages');
-
+    
     require('views/intro');
     require('views/thank_you_fail');
     require('views/categories');
@@ -34,4 +34,6 @@ define(function(require) {
 
     router = new Router();
     Backbone.history.start();
+
+    window.Backbone = Backbone;
 });

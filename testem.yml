@@ -3,12 +3,14 @@ launchers:
         command: "HEADLESS=1 rspec spec/spec.rb"
     browser:
         command: "rspec spec/spec.rb"
-
 src_files: 
 - src/index.html
 - src/js/*.js
 - src/templates/*.html
 - spec/*.rb
+- spec/unit_tests/*.js
+
+test_page: "spec/SpecRunner.html"
 
 launch_in_dev: 
 - headless
