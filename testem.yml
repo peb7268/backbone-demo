@@ -4,6 +4,7 @@ launchers:
 src_files: 
 - src/index.html
 - src/js/*.js
+- src/templates/*.html
 - spec/*.rb
 
 launch_in_dev: 

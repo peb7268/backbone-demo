@@ -1,20 +1,23 @@
 require_relative 'spec_helper.rb'
 
-describe 'Testing Pages Have correct markup' do 
+describe 'Pages can navigate correctly' do
 	it 'Testing pages can navigate' do
 		visit '/'
 		page.should have_content('Get Paid for Having FUN!!')
-		
 		click_link 'Next'
+
 		page.should have_content('Topic Categories')
 		page.should have_content('Current Events')
 		page.check('U.S. Politics')
 		page.check('Foreign Affairs')
-
+		page.check('Business & Economics')
 		click_link 'Next'
+		
 		page.should have_content('Background')
 	end
-	
+end
+
+describe 'Testing Pages Have correct markup' do 
 	it 'Testing intro page' do
 		visit '/'
 		page.should have_content('Get Paid for Having FUN!!')
