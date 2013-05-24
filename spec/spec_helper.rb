@@ -3,7 +3,7 @@ require 'capybara/dsl'
 require 'capybara/poltergeist'
 
 Capybara.run_server = false
-Capybara.app_host = "http://dev.js.com/ice/src/" #sets the base URL for capybara visit 
+Capybara.app_host = "http://dev.js.com/ice/src" #sets the base URL for capybara visit 
 
 headless = !!ENV['HEADLESS']
 if headless

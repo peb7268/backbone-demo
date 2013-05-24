@@ -1,8 +1,8 @@
 require.config({
     paths: {
-    	jquery: 'lib/jquery',
-    	underscore: 'lib/underscore',
-        backbone: 'lib/backbone',
+    	jquery: '../src/js/lib/jquery',
+    	underscore: '../src/js/lib/underscore',
+        backbone: '../src/js/lib/backbone',
         templates: '../templates',
         jasmine: '../../spec/lib/jasmine.js',
         spec:    '../../spec/'
@@ -29,20 +29,19 @@ require.config({
 });
 
 define(function(require) {
-    var Pages       = require('collections/pages');
+    require('../../spec/unit_tests/all');
+
+    var jasmineEnv = jasmine.getEnv();
+    jasmineEnv.updateInterval = 1000;
+
+    var htmlReporter = new jasmine.HtmlReporter();
+
+    jasmineEnv.addReporter(htmlReporter);
+
+    jasmineEnv.specFilter = function(spec) {
+    return htmlReporter.specFilter(spec);
+    };
+
+    jasmineEnv.execute();
     
-    require('views/intro');
-    require('views/thank_you_fail');
-    require('views/categories');
-    require('views/background');
-    require('views/initial_concept');
-    require('router');
-
-    var PagesCollection = new Pages({}),
-
-    router = new Router();
-    Backbone.history.start();
-
-    //require('../../spec/unit_tests/all');
-
 });
